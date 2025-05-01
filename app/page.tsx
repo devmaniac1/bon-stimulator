@@ -340,8 +340,16 @@ export default function Home() {
                             className="my-4"
                             aria-label={`Adjust ${dimension.name} value`}
                           />
+                          <div>
+                            <ul className="flex justify-between text-xs text-slate-400 px-1 mb-1">
+                              {[1, 2, 3, 4, 5].map((num) => (
+                                <li key={num}>{num}</li>
+                              ))}
+                            </ul>
+                          </div>
                           <div className="flex justify-between text-xs text-slate-400 px-1">
                             <span>Low</span>
+                            <span>Mid</span>
                             <span>High</span>
                           </div>
                         </div>
