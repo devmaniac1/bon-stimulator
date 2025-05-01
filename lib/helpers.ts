@@ -21,4 +21,11 @@ const getColorClassForSummary = (value: number = 0) => {
   return "bg-green-500";
 };
 
-export { getReadinessInterpretation, getColorClass, getColorClassForSummary };
+const getInterpretationColor = (averageScore: number): string => {
+  if (averageScore <= 2.4) return "#dc2626"; // Red → Foundational
+  if (averageScore <= 3.4) return "#f59e0b"; // Amber → Emerging
+  if (averageScore <= 4.2) return "#3b82f6"; // Blue → Strategic
+  return "#16a34a"; // Green → Execution-Ready
+};
+
+export { getReadinessInterpretation, getColorClass, getColorClassForSummary ,getInterpretationColor};
