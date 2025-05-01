@@ -23,7 +23,7 @@ import {
   Layers,
 } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getReadinessInterpretation } from "@/lib/helpers";
+import { getReadinessInterpretation,getInterpretationColor } from "@/lib/helpers";
 
 const BON_DIMENSIONS = [
   {
@@ -111,7 +111,9 @@ export default function Home() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const score: number = sliders.reduce((a, b) => a + b, 0) / sliders.length;
+    const score: number = parseFloat(
+      (sliders.reduce((a, b) => a + b, 0) / sliders.length).toFixed(2)
+    );
     const interpretation: string = getReadinessInterpretation(score);
 
     const sliderRatings: Record<string, number> = {};
@@ -125,7 +127,7 @@ export default function Home() {
       averageScore: score,
       interpretation,
     };
-    const interpretationColor = averageScore > 3 ? "green" : "red";
+    const interpretationColor = getInterpretationColor(score);
 
     try {
       emailjs.send(
@@ -135,7 +137,7 @@ export default function Home() {
           name,
           email,
           interpretationColor,
-          averageScore,
+          score,
           interpretation,
           clarity: sliders[0],
           ownership: sliders[1],
