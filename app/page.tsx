@@ -147,7 +147,7 @@ export default function Home() {
           adaptability: sliders[7],
           momentumData: sliders[8],
         },
-        `${process.env.NEXT_PUBLIC_PUBLIC_ID}`
+        `${process.env.NEXT_PUBLIC_EMAILJS_ID}`
       );
       await fetch(
         `https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`,
