@@ -393,10 +393,7 @@ export default function Home() {
                       </div>
 
                       <div className="mt-8 mb-4 px-4 touch-manipulation">
-                        <div className="flex justify-between mb-2">
-                          <span className="text-sm text-slate-500">Low</span>
-                          <span className="text-sm text-slate-500">High</span>
-                        </div>
+                        
                         <Slider
                           defaultValue={[sliders[currentStep]]}
                           value={[sliders[currentStep]]}
@@ -409,6 +406,18 @@ export default function Home() {
                           className="my-6"
                           aria-label={`Adjust ${BON_DIMENSIONS[currentStep].name} value`}
                         />
+                        <div>
+                          <ul className="flex justify-between text-xs text-slate-400 px-2 mb-1">
+                            {[1, 2, 3, 4, 5].map((num) => (
+                              <li key={num}>{num}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="flex justify-between mb-2 px-1">
+                          <span className="text-xs text-slate-500">Low</span>
+                          <span className="text-xs text-slate-500">Mid</span>
+                          <span className="text-xs text-slate-500">High</span>
+                        </div>
                         <div className="flex justify-center mt-4">
                           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 text-slate-800 text-3xl font-bold">
                             {sliders[currentStep]}
